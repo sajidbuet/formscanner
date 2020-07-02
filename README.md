@@ -1,3 +1,6 @@
+![Java CI with Maven](https://github.com/adnan0944/FormScanner/workflows/Java%20CI%20with%20Maven/badge.svg)
+
+
 FormScanner
 ===
 
