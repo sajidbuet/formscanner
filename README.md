@@ -22,9 +22,9 @@ Build requirements
 Compiling the software
 ===
 
-$ git clone https://github.com/FormScanner/FormScanner FormScanner
+$ git clone https://github.com/FormScanner/Desktop FS_Desktop
 
-$ cd FormScanner
+$ cd FS_Desktop
 
 $ mvn clean install
 
