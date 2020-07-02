@@ -14,7 +14,7 @@ All the collected information can be easily exported to a spreadsheet.
 Build requirements
 ===
 
-* [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* Java 8
 * [Maven (2 or 3)](http://maven.apache.org/)
 
 ---
@@ -23,7 +23,9 @@ Compiling the software
 ===
 
 $ git clone https://github.com/FormScanner/FormScanner FormScanner
+
 $ cd FormScanner
+
 $ mvn clean install
 
 ---
