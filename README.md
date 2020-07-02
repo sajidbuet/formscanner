@@ -14,16 +14,15 @@ All the collected information can be easily exported to a spreadsheet.
 Build requirements
 ===
 
-* [Java 6](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * [Maven (2 or 3)](http://maven.apache.org/)
-* [Mercurial](http://mercurial.selenic.com/) (I'm using [TortoiseHg](http://tortoisehg.bitbucket.org/) with Windows Explorer "shell" integration all-in-one installer with TortoiseHg 3.1.1 and Mercurial 3.1.1)
 
 ---
 
 Compiling the software
 ===
 
-$ hg clone http://hg.code.sf.net/p/formscanner/code formscanner-code
+$ git clone https://github.com/adnan0944/FormScanner formscanner-code
 $ cd formscanner-code
 $ mvn clean install
 
