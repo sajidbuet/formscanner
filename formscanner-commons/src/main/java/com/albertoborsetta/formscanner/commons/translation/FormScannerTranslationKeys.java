@@ -58,6 +58,8 @@ public class FormScannerTranslationKeys extends TranslationKeys {
 	public static final String RENAME_FILE_FRAME_LABEL = "rename.file.frame.label";
 
 	public static final String ANALYZE_FILE_FRAME_TITLE = "analyze.file.frame.title";
+        
+	public static final String SHOW_MESSAGE_FRAME_TITLE = "show.message.frame.title";
 
 	public static final String MANAGE_TEMPLATE_FRAME_TITLE = "manage.template.frame.title";
 	public static final String FIELD_LIST_TAB_NAME = "field.list.tab.name";
@@ -74,6 +76,8 @@ public class FormScannerTranslationKeys extends TranslationKeys {
 
 	public static final String CANCEL_BUTTON = "cancel.button";
 	public static final String CANCEL_BUTTON_TOOLTIP = "cancel.button.tooltip";
+        
+        public static final String RENAME_FILE_NAMES_FILE_BUTTON =  "rename.file.names.file.button";
 
 	public static final String ADD_FIELD_BUTTON_TOOLTIP = "add.field.button.tooltip";
 	public static final String REMOVE_FIELD_BUTTON_TOOLTIP = "remove.field.button.tooltip";

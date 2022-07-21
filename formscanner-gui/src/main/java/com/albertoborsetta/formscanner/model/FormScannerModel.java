@@ -50,6 +50,7 @@ import com.albertoborsetta.formscanner.gui.OptionsFrame;
 import com.albertoborsetta.formscanner.gui.RenameFileFrame;
 import com.albertoborsetta.formscanner.gui.ResultsGridFrame;
 import com.albertoborsetta.formscanner.gui.FormScannerDesktop;
+import com.albertoborsetta.formscanner.gui.ShowMessageFrame;
 
 import java.awt.HeadlessException;
 import java.awt.Image;
@@ -126,6 +127,7 @@ public class FormScannerModel {
 	private ArrayList<String> historyGroupNameTemplate;
 	private HashMap<String, Integer> crop = new HashMap<>();
 	private ArrayList<String> usedGroupNamesList = new ArrayList<>();
+        private String[] residentNames;
 	private int nextGroupIndex=1;
 
 	public FormScannerModel() throws UnsupportedEncodingException {
@@ -232,7 +234,11 @@ public class FormScannerModel {
 		}
 
 		defaultIcon = FormScannerResources.getFormScannerIcon();
+                
+                residentNames = FormScannerResources.getResidentNames(FormScannerResources.getDefaultResidentsFilePath());
 	}
+        
+        
 
 	private static String getDefaultLanguage(String installationLanguage) {
 		for (Language language : Language.values()) {
@@ -282,6 +288,17 @@ public class FormScannerModel {
 		}
 	}
 
+        public void showMessageFrame(){
+            view.arrangeFrame(new ShowMessageFrame(this));
+        }
+        
+	public void chooseAndLoadTextfile() {
+            File file = fileUtils.chooseCsvfile();
+            residentNames = FormScannerResources.getResidentNames(file.getPath());
+            renameFileFrame.updateComboBoxModel();
+        }
+        
+        
 	public void renameFiles(String action) {
 		Action act = Action.valueOf(action);
 		switch (act) {
@@ -892,6 +909,12 @@ public class FormScannerModel {
 	public int getDensity() {
 		return density;
 	}
+
+    public String[] getResidentNames() {
+        return residentNames;
+    }
+        
+        
 
 	public void saveOptions(OptionsFrame view) {
 		threshold = view.getThresholdValue();

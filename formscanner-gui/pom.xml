@@ -14,6 +14,14 @@
 		<quaqua.version>8.0</quaqua.version>
 	</properties>
 	<name>FormScanner - GUI</name>
+	    <repositories>
+        <repository>
+            <id>in-project</id>
+            <name>In Project Repo</name>
+            <url>file://${project.basedir}/libs</url>
+        </repository>
+    </repositories>
+	
 	<dependencies>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
@@ -25,10 +33,15 @@
 			<artifactId>formscanner-commons</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-		<dependency>
+<!--		<dependency>
 			<groupId>ch.randelshofer</groupId>
 			<artifactId>quaqua</artifactId>
 			<version>${quaqua.version}</version>
-		</dependency>
+		</dependency>-->
+        <dependency>
+            <groupId>randelshofer</groupId>
+            <artifactId>quaqua</artifactId>
+            <version>${quaqua.version}</version>
+        </dependency>
 	</dependencies>
 </project>

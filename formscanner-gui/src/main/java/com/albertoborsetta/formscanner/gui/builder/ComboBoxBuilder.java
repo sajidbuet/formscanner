@@ -9,6 +9,8 @@ import javax.swing.JLabel;
 
 import com.albertoborsetta.formscanner.commons.FormScannerFont;
 import com.albertoborsetta.formscanner.gui.OptionsFrame.IconListRenderer;
+import java.awt.event.KeyListener;
+import javax.swing.JTextField;
 
 public class ComboBoxBuilder<T> {
 
@@ -43,18 +45,25 @@ public class ComboBoxBuilder<T> {
         return comboBox;
     }
 
-	public ComboBoxBuilder<T> setEditable(boolean b) {
-		comboBox.setEditable(b);
-		return this;
-	}
+    public ComboBoxBuilder<T> setEditable(boolean b) {
+        comboBox.setEditable(b);
+        return this;
+    }
 
-	public ComboBoxBuilder<T> withActionCommand(String command) {
-		comboBox.setActionCommand(command);
-		return this;
-	}
+    public ComboBoxBuilder<T> withActionCommand(String command) {
+        comboBox.setActionCommand(command);
+        return this;
+    }
 
-	public ComboBoxBuilder<T> withRenderer(IconListRenderer countryItemRenderer) {
-		comboBox.setRenderer(countryItemRenderer);
-		return this;
-	}
+    public ComboBoxBuilder<T> withRenderer(IconListRenderer countryItemRenderer) {
+        comboBox.setRenderer(countryItemRenderer);
+        return this;
+    }
+    
+    public ComboBoxBuilder<T> withKeyListener(KeyListener listener){
+        JTextField textfield =
+            (JTextField) comboBox.getEditor().getEditorComponent();
+        textfield.addKeyListener(listener);
+        return this;
+    }
 }
