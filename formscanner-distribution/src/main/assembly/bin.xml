@@ -86,6 +86,13 @@
 						</includes>
 					</fileSet>
 					<fileSet>
+						<outputDirectory>/residents</outputDirectory>
+						<directory>src/main/resources/residents</directory>
+						<includes>
+							<include>*.txt</include>
+						</includes>
+					</fileSet>
+					<fileSet>
 						<outputDirectory>/</outputDirectory>
 						<directory>src/main/resources</directory>
 						<includes>

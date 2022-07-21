@@ -4,6 +4,7 @@ import com.albertoborsetta.formscanner.commons.FormScannerConstants;
 import com.albertoborsetta.formscanner.commons.FormScannerConstants.Action;
 import com.albertoborsetta.formscanner.model.FormScannerModel;
 import com.albertoborsetta.formscanner.gui.RenameFileFrame;
+import com.albertoborsetta.formscanner.gui.ShowMessageFrame;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -58,6 +59,9 @@ public class RenameFileController implements KeyListener, ActionListener, FocusL
                 break;
             case RENAME_FILES_SKIP:
                 model.renameFiles(FormScannerConstants.RENAME_FILES_SKIP);
+                break;
+            case CHOOSE_RENAME_NAMES_FILE:
+                model.showMessageFrame();
                 break;
             default:
                 break;

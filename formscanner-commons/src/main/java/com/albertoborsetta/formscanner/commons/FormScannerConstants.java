@@ -21,6 +21,7 @@ public class FormScannerConstants extends Constants {
 	public static final String RENAME_FILES_FIRST = "RENAME_FILES_FIRST";
 	public static final String RENAME_FILES_CURRENT = "RENAME_FILES_CURRENT";
 	public static final String RENAME_FILES_SKIP = "RENAME_FILES_SKIP";
+	public static final String CHOOSE_RENAME_NAMES_FILE = "CHOOSE_RENAME_NAMES_FILE";
 	public static final String OPEN_IMAGES = "OPEN_IMAGES";
 	public static final String SAVE_RESULTS = "SAVE_RESULTS";
 	public static final String ANALYZE_FILES_ALL = "ANALYZE_FILES_ALL";
@@ -47,6 +48,7 @@ public class FormScannerConstants extends Constants {
 
 	// Frames
 	public static final String RENAME_FILES_FRAME_NAME = "RENAME_FILES_FRAME_NAME";
+	public static final String SHOW_MESSAGE_FRAME_NAME = "SHOW_MESSAGE_FRAME_NAME";
 	public static final String FILE_LIST_FRAME_NAME = "FILE_LIST_FRAME_NAME";
 	public static final String MANAGE_TEMPLATE_FRAME_NAME = "MANAGE_TEMPLATE_FRAME_NAME";
 	public static final String IMAGE_FRAME_NAME = "IMAGE_FRAME_NAME";
@@ -58,6 +60,7 @@ public class FormScannerConstants extends Constants {
 	// Frames positions and size
 	private static final Rectangle FILE_LIST_FRAME_POSITION = new Rectangle(10, 10, 200, 600);
 	private static final Rectangle RENAME_FILES_FRAME_POSITION = new Rectangle(220, 320, 370, 100);
+	private static final Rectangle SHOW_MESSAGE_FRAME_POSITION = new Rectangle(470, 350, 420, 150);
 	private static final Rectangle MANAGE_TEMPLATE_FRAME_POSITION = new Rectangle(100, 100, 600, 500);
 	private static final Rectangle IMAGE_FRAME_POSITION = new Rectangle(10, 10, 1000, 600);
 	private static final Rectangle RESULTS_GRID_FRAME_POSITION = new Rectangle(100, 100, 230, 300);
@@ -178,7 +181,9 @@ public class FormScannerConstants extends Constants {
 																FormScannerConfigurationKeys.ABOUT_FRAME,
 																ABOUT_FRAME_POSITION), DESKTOP_FRAME(DESKTOP_NAME,
 																		FormScannerConfigurationKeys.DESKTOP_FRAME,
-																		DESKTOP_SIZE);
+																		DESKTOP_SIZE),
+                                                                                                                                SHOW_MESSAGE_FRAME(SHOW_MESSAGE_FRAME_NAME, FormScannerConfigurationKeys.SHOW_MESSAGE_FRAME,
+                                                                                                                                        SHOW_MESSAGE_FRAME_POSITION);
 
 		private final String value;
 		private final String key;
@@ -208,6 +213,7 @@ public class FormScannerConstants extends Constants {
 		RENAME_FILES_FIRST, 
 		RENAME_FILES_CURRENT, 
 		RENAME_FILES_SKIP, 
+                CHOOSE_RENAME_NAMES_FILE,
 		OPEN_IMAGES, 
 		SAVE_RESULTS, 
 		ANALYZE_FILES_FIRST, 
