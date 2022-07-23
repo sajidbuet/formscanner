@@ -157,6 +157,12 @@ public class FormFileUtils extends JFileChooser {
 		setImagesFilter();
 		return chooseFile();
 	}
+        
+	public File chooseCsvfile() {
+		setMultiSelectionEnabled(false);
+		setCsvFilter();
+		return chooseFile();
+	}
 
 	public File chooseTemplate() {
 		setMultiSelectionEnabled(false);

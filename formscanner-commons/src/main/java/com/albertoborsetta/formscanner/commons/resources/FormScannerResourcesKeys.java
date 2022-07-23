@@ -48,4 +48,6 @@ public class FormScannerResourcesKeys {
 	public static final String FORMSCANNER_ICON = "formscanner";
 	
 	public static final String IMPORT_ICON_16 = "import_16";
+        
+	public static final String RESIDENTS_FILE_NAME = "ResidentNamesJune292022";
 }
