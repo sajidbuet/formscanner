@@ -1,7 +1,14 @@
 ![Java CI with Maven](https://github.com/adnan0944/FormScanner/workflows/Java%20CI%20with%20Maven/badge.svg)
 
 
-FormScanner
+FormScanner (Windows)
+
+===
+Sajid's fork:
+
+1. Added windows installer powershell script
+2. Working
+
 ===
 
 FormScanner is an OMR (Optical Mark Recognition) software that automatically marks multiple-choice papers. 
