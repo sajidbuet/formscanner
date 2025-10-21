@@ -1,24 +1,31 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
+
   <parent>
     <groupId>com.albertoborsetta</groupId>
     <artifactId>formscanner</artifactId>
     <version>1.1.4</version>
   </parent>
+
   <artifactId>formscanner-gui</artifactId>
   <packaging>jar</packaging>
+
   <name>FormScanner - GUI</name>
+
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <quaqua.version>8.0</quaqua.version>
-    <!-- à¦šà¦¾à¦‡à¦²à§‡ here set à¦•à¦°à¦¾ à¦¯à¦¾à§Ÿ -->
+    <!-- চাইলে here set করা যায় -->
     <main.class>com.albertoborsetta.formscanner.main.FormScanner</main.class>
     <!-- shaded jar classifier -->
     <shade.classifier>shaded</shade.classifier>
     <maven.shade.version>3.5.0</maven.shade.version>
   </properties>
-  <!-- à¦†à¦ªà¦¨à¦¾à¦° à¦²à§‹à¦•à¦¾à¦² libs à¦«à§‹à¦²à§à¦¡à¦¾à¦°à§‡à¦“ repo à¦°à¦¾à¦–à¦¾ à¦†à¦›à§‡â€”à¦¯à¦¦à¦¿ Quaqua/à¦…à¦¨à§à¦¯à¦¾à¦¨à§à¦¯ à¦œà¦¾à¦° à¦²à§‹à¦•à¦¾à¦²à¦¿ à¦°à¦¾à¦–à§‡à¦¨ -->
+
+  <!-- আপনার লোকাল libs ফোল্ডারেও repo রাখা আছে—যদি Quaqua/অন্যান্য জার লোকালি রাখেন -->
   <repositories>
     <repository>
       <id>in-project</id>
@@ -26,20 +33,24 @@
       <url>file://${project.basedir}/libs</url>
     </repository>
   </repositories>
+
   <dependencies>
     <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>formscanner-api</artifactId>
       <version>${project.version}</version>
     </dependency>
+
     <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>formscanner-commons</artifactId>
       <version>${project.version}</version>
     </dependency>
-    <!-- NOTE: Quaqua à¦¡à¦¿à¦ªà§‡à¦¨à¦¡à§‡à¦¨à§à¦¸à¦¿ à¦†à¦° à¦à¦–à¦¾à¦¨à§‡ à¦¨à§‡à¦‡; à¦¨à¦¿à¦šà§‡à¦° macOS-only profile-à¦ à¦†à¦›à§‡ -->
+
+    <!-- NOTE: Quaqua ডিপেনডেন্সি আর এখানে নেই; নিচের macOS-only profile-এ আছে -->
   </dependencies>
-  <!-- macOS-only profile: à¦¶à§à¦§à§à¦®à¦¾à¦¤à§à¦° Mac-à¦ build à¦¹à¦²à§‡ Quaqua à¦¯à§à¦•à§à¦¤ à¦¹à¦¬à§‡ -->
+
+  <!-- macOS-only profile: শুধুমাত্র Mac-এ build হলে Quaqua যুক্ত হবে -->
   <profiles>
     <profile>
       <id>macosx-laf</id>
@@ -49,7 +60,7 @@
         </os>
       </activation>
       <dependencies>
-        <!-- à¦†à¦ªà¦¨à¦¾à¦° à¦¬à¦°à§à¦¤à¦®à¦¾à¦¨ à¦—à§à¦°à§à¦ªà¦†à¦‡à¦¡à¦¿ à¦…à¦¨à§à¦¯à¦¾à¦¯à¦¼à§€ à¦°à¦¾à¦–à¦¾ à¦¹à¦²à§‹ -->
+        <!-- আপনার বর্তমান গ্রুপআইডি অনুযায়ী রাখা হলো -->
         <dependency>
           <groupId>randelshofer</groupId>
           <artifactId>quaqua</artifactId>
@@ -57,7 +68,7 @@
           <scope>compile</scope>
         </dependency>
         <!--
-        à¦¯à¦¦à¦¿ à¦†à¦ªà¦¨à¦¾à¦° à¦ªà§à¦°à¦•à§ƒà¦¤ à¦œà¦¾à¦° ch.randelshofer:quaqua à¦¹à¦¯à¦¼, à¦‰à¦ªà¦°à§‡à¦°à¦Ÿà¦¿ à¦¬à¦¦à¦²à§‡ à¦¦à¦¿à¦¨:
+        যদি আপনার প্রকৃত জার ch.randelshofer:quaqua হয়, উপরেরটি বদলে দিন:
         <dependency>
           <groupId>ch.randelshofer</groupId>
           <artifactId>quaqua</artifactId>
@@ -68,9 +79,10 @@
       </dependencies>
     </profile>
   </profiles>
+
   <build>
     <plugins>
-      <!-- (à¦à¦šà§à¦›à¦¿à¦•) parent-à¦ à¦¨à¦¾ à¦¥à¦¾à¦•à¦²à§‡ compiler à¦ªà§à¦²à¦¾à¦—à¦‡à¦¨ à¦¯à§‹à¦—à§‡ Java version enforce à¦•à¦°à¦¤à§‡ à¦ªà¦¾à¦°à§‡à¦¨
+      <!-- (ঐচ্ছিক) parent-এ না থাকলে compiler প্লাগইন যোগে Java version enforce করতে পারেন
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -81,7 +93,8 @@
         </configuration>
       </plugin>
       -->
-      <!-- âœ… Fat runnable JAR à¦¬à¦¾à¦¨à¦¾à¦¤à§‡ Shade -->
+
+      <!-- ✅ Fat runnable JAR বানাতে Shade -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-shade-plugin</artifactId>
@@ -93,20 +106,22 @@
               <goal>shade</goal>
             </goals>
             <configuration>
-              <!-- shaded jar à¦†à¦²à¦¾à¦¦à¦¾ classifier -->
+              <!-- shaded jar আলাদা classifier -->
               <shadedArtifactAttached>true</shadedArtifactAttached>
               <shadedArtifactClassifier>${shade.classifier}</shadedArtifactClassifier>
-              <!-- Main-Class à¦¸à§‡à¦Ÿ -->
+
+              <!-- Main-Class সেট -->
               <transformers>
                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                   <mainClass>${main.class}</mainClass>
                 </transformer>
-                <!-- service loader à¦«à¦¾à¦‡à¦² à¦®à¦¾à¦°à§à¦œ -->
+                <!-- service loader ফাইল মার্জ -->
                 <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
-                <!-- (à¦à¦šà§à¦›à¦¿à¦•) à¦²à¦¾à¦‡à¦¸à§‡à¦¨à§à¦¸/à¦¨à§‹à¦Ÿà¦¿à¦¸ à¦®à¦¾à¦°à§à¦œ -->
+                <!-- (ঐচ্ছিক) লাইসেন্স/নোটিস মার্জ -->
                 <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer" />
               </transformers>
-              <!-- (à¦à¦šà§à¦›à¦¿à¦•) à¦¸à¦¿à¦—à¦¨à§‡à¦šà¦¾à¦°/à¦®à§‡à¦Ÿà¦¾-à¦‡à¦¨à¦« à¦•à§à¦²à¦¿à¦¨à¦†à¦ª -->
+
+              <!-- (ঐচ্ছিক) সিগনেচার/মেটা-ইনফ ক্লিনআপ -->
               <filters>
                 <filter>
                   <artifact>*:*</artifact>
@@ -117,7 +132,8 @@
                   </excludes>
                 </filter>
               </filters>
-              <!-- (à¦à¦šà§à¦›à¦¿à¦•) à¦ªà§à¦¯à¦¾à¦•à§‡à¦œ à¦°à¦¿à¦²à§‹à¦•à§‡à¦¶à¦¨ à¦²à¦¾à¦—à¦²à§‡ à¦à¦–à¦¾à¦¨à§‡ à¦•à¦¨à¦«à¦¿à¦— à¦•à¦°à¦¬à§‡à¦¨
+
+              <!-- (ঐচ্ছিক) প্যাকেজ রিলোকেশন লাগলে এখানে কনফিগ করবেন
               <relocations>
                 <relocation>
                   <pattern>org.apache.commons</pattern>
@@ -131,4 +147,5 @@
       </plugin>
     </plugins>
   </build>
+
 </project>

@@ -58,7 +58,7 @@ Ensure-Maven -MvnVersion $MavenVersion -Root $InstallRoot
 $workDir  = $WorkRoot; $formRepo = Join-Path $workDir 'formscanner'
 Write-Host ('`n>>> Using working directory: ' + $workDir) -ForegroundColor Cyan
 if (-not (Test-Path $workDir)) { New-Item -ItemType Directory -Path $workDir | Out-Null }
-if (-not (Test-Path $formRepo)) { Write-Host '>>> Cloning FormScanner...' -ForegroundColor Cyan; git clone https://github.com/ylemkimon/formscanner.git $formRepo | Out-Null } else { Write-Host '>>> Repo already exists. Pulling latest...' -ForegroundColor Cyan; Push-Location $formRepo; git pull --rebase | Out-Null; Pop-Location }
+if (-not (Test-Path $formRepo)) { Write-Host '>>> Cloning FormScanner...' -ForegroundColor Cyan; git clone https://github.com/sajidmc/formscanner.git $formRepo | Out-Null } else { Write-Host '>>> Repo already exists. Pulling latest...' -ForegroundColor Cyan; Push-Location $formRepo; git pull --rebase | Out-Null; Pop-Location }
 
 # Quaqua cleanup (same logic as previous) - minimal here to keep focus on target finder
 function Remove-Quaqua-From-Poms([string]$RepoPath) {

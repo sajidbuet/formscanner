@@ -23,7 +23,7 @@ if (-not (Test-Path $workDir)) { New-Item -ItemType Directory -Path $workDir | O
 
 if (-not (Test-Path $formRepo)) {
   Write-Host '>>> Cloning FormScanner...' -ForegroundColor Cyan
-  git clone https://github.com/ylemkimon/formscanner.git $formRepo | Out-Null
+  git clone https://github.com/sajidmc/formscanner.git $formRepo | Out-Null
   if (-not (Test-Path $formRepo)) { Fail 'Git clone failed.' }
 } else {
   Write-Host '>>> Repo exists. Pulling latest...' -ForegroundColor Cyan

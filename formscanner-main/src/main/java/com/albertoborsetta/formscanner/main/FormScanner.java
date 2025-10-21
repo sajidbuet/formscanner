@@ -1,5 +1,5 @@
 package com.albertoborsetta.formscanner.main;
-
+import javax.swing.UIManager;
 import java.awt.EventQueue;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -33,7 +33,7 @@ import java.io.UnsupportedEncodingException;
 import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.UnsupportedLookAndFeelException;
 
-import ch.randelshofer.quaqua.QuaquaLookAndFeel;
+//import ch.randelshofer.quaqua.QuaquaLookAndFeel; 
 
 public class FormScanner {
 
@@ -54,7 +54,8 @@ public class FormScanner {
 						
 						logger = LogManager.getLogger(FormScanner.class.getName());
 						
-						UIManager.installLookAndFeel("Quaqua", QuaquaLookAndFeel.class.getName());
+						//UIManager.installLookAndFeel("Quaqua", QuaquaLookAndFeel.class.getName());
+						
 						
 						for (LookAndFeelInfo info : UIManager
 								.getInstalledLookAndFeels()) {
@@ -63,6 +64,8 @@ public class FormScanner {
 								break;
 							}
 						}
+
+					    //setLookAndFeelSafely();
 						FormScannerDesktop desktop = new FormScannerDesktop(
 								model);
 						model.setDesktop(desktop);
@@ -133,6 +136,19 @@ public class FormScanner {
 							.format(today) + ".csv");
 			fileUtils.saveCsvAs(outputFile, filledForms, false);
 			System.exit(0);
+		}
+	}
+	private static void setLookAndFeelSafely() {
+		try {
+			for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+				if ("Nimbus".equals(info.getName())) {
+					UIManager.setLookAndFeel(info.getClassName());
+					return;
+				}
+			}
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} catch (Exception e) {
+			// If Nimbus is not available, you can set the GUI to another look and feel.
 		}
 	}
 }

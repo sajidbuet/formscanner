@@ -1,40 +1,16 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <parent>
     <artifactId>formscanner</artifactId>
     <groupId>com.albertoborsetta</groupId>
     <version>1.1.4</version>
   </parent>
+  <modelVersion>4.0.0</modelVersion>
   <artifactId>formscanner-main</artifactId>
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <quaqua.version>8.0</quaqua.version>
-    <main.class>com.albertoborsetta.formscanner.main.FormScanner</main.class>
-    <shade.classifier>shaded</shade.classifier>
-    <maven.shade.version>3.5.0</maven.shade.version>
-  </properties>
   <name>FormScanner - Main</name>
-  <dependencies>
-    <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>formscanner-api</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>formscanner-commons</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>formscanner-gui</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-  </dependencies>
   <build>
     <plugins>
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-shade-plugin</artifactId>
         <version>3.5.0</version>
         <executions>
@@ -47,11 +23,11 @@
               <shadedArtifactAttached>true</shadedArtifactAttached>
               <shadedArtifactClassifier>shaded</shadedArtifactClassifier>
               <transformers>
-                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                <transformer>
                   <mainClass>com.albertoborsetta.formscanner.main.FormScanner</mainClass>
                 </transformer>
-                <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
-                <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer" />
+                <transformer />
+                <transformer />
               </transformers>
               <filters>
                 <filter>
@@ -72,11 +48,6 @@
   <profiles>
     <profile>
       <id>macosx-laf</id>
-      <activation>
-        <os>
-          <family>mac</family>
-        </os>
-      </activation>
       <dependencies>
         <dependency>
           <groupId>randelshofer</groupId>
@@ -87,4 +58,11 @@
       </dependencies>
     </profile>
   </profiles>
+  <properties>
+    <main.class>com.albertoborsetta.formscanner.main.FormScanner</main.class>
+    <maven.shade.version>3.5.0</maven.shade.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <shade.classifier>shaded</shade.classifier>
+    <quaqua.version>8.0</quaqua.version>
+  </properties>
 </project>
