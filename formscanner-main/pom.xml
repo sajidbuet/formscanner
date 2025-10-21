@@ -32,6 +32,29 @@
     </dependency>
   </dependencies>
   <build>
+    <resources>
+    <!-- include this module's resources (default anyway, but explicit is fine) -->
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>false</filtering>
+        <includes>
+          <include>**/*.properties</include>
+          <include>**/*.xml</include>
+        </includes>
+      </resource>
+          <resource>
+      <directory>src/main/resources</directory>
+      <filtering>false</filtering>
+    </resource>
+    <!-- also sweep in GUI's compiled resources -->
+    <resource>
+      <directory>${project.basedir}/../formscanner-gui/target/classes</directory>
+      <filtering>false</filtering>
+      <includes>
+        <include>**/*.properties</include>
+      </includes>
+    </resource>
+    </resources>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -67,6 +90,18 @@
           </execution>
         </executions>
       </plugin>
+       <!-- Ensure Maven copies resources exactly (no filtering/encoding surprises) -->
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-resources-plugin</artifactId>
+      <version>3.3.1</version>
+      <configuration>
+        <encoding>UTF-8</encoding>
+        <nonFilteredFileExtensions>
+          <nonFilteredFileExtension>properties</nonFilteredFileExtension>
+        </nonFilteredFileExtensions>
+      </configuration>
+    </plugin>
     </plugins>
   </build>
   <profiles>
